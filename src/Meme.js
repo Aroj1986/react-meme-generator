@@ -5,8 +5,8 @@ import axios from 'axios';
 
 function Meme() {
     const navigate = useNavigate()
-    const {id} = useParams()
-    const [meme, setMeme] = useState([])
+    const {id, url, name} = useParams()
+    const [meme, setMeme] = useState({url:""})
 
     useEffect(() => {
         axios.get(`https://api.imgflip.com/get_memes?${id}`)
@@ -18,7 +18,7 @@ function Meme() {
       console.log(meme)
   return (
     <div>
-        <h1>{id}</h1>
+        <h1>{id}{url}{name}</h1>
       <div className="row back-btn-forward">
         <Link onClick={() => navigate(-1)} className="textdecoration-none ">
           <span>

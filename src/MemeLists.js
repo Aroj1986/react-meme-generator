@@ -14,7 +14,7 @@ function Memes() {
       console.log(response.data.data.memes)
       setMemes(response.data.data.memes)
     })
-  }, [])
+  }, [memes])
 
   return (
     <>
@@ -22,7 +22,7 @@ function Memes() {
         {memes.map((meme) => {
           return (
             <div className="card-container" key={meme.id}>
-              <img src={meme.url} key={meme.id} style={{ width: 250, height: 250 }} alt={"meme image"}></img>
+              <img src={meme.url} key={meme.id} style={{ width: 250, height: 250 }}></img>
               <Link to={`/${meme.id}`}><button type="button" className="btn btn-secondary btn-m card-caption">{meme.name}</button></Link>
             </div>
             )
